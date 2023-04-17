@@ -13,16 +13,18 @@ import static org.junit.Assert.assertEquals;
 public class TestLionDoesHaveMane {
     @Parameterized.Parameter
     public String sex;
+    Feline feline = Mockito.mock(Feline.class);
 
-    @Parameterized.Parameters(name = "{index}: пол" )
+    @Parameterized.Parameters(name = "{index}: пол")
     public static Object[] sexLion() {
-        return new Object[] {"Самка", "Самец", "транс"};
+        return new Object[]{"Самка", "Самец", "транс"};
     }
+
     @Before
     public void init() {
         MockitoAnnotations.initMocks(this);
     }
-    Feline feline = Mockito.mock(Feline.class);
+
     @Test
     public void testDoesHaveMane() throws Exception {
         try {
@@ -36,8 +38,7 @@ public class TestLionDoesHaveMane {
             }
             Boolean actualHasMane = lion.doesHaveMane();
             assertEquals(expectedHasMain, actualHasMane);
-        }
-        catch (Exception exception) {
+        } catch (Exception exception) {
             System.out.println("Используйте допустимые значения пола животного - самец или самка");
         }
     }

@@ -14,6 +14,7 @@ import static org.junit.Assert.assertEquals;
 public class TestCatGetFood {
     @Mock
     Feline feline;
+
     @Test
     public void testGetFood() throws Exception {
         Cat cat = new Cat(feline);
